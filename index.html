@@ -7,7 +7,11 @@
     <title>Zhengwei Zhang</title>
 
 ```
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
+
     body {
         font-family: Arial, sans-serif;
         max-width: 900px;
@@ -27,10 +31,6 @@
         margin-top: 40px;
     }
 
-    .project {
-        margin-bottom: 25px;
-    }
-
     a {
         color: #005587;
         text-decoration: none;
@@ -44,20 +44,81 @@
         text-align: center;
         margin-bottom: 40px;
     }
+
+    details {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 15px;
+        background: #fafafa;
+    }
+
+    summary {
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    summary:hover {
+        color: #005587;
+    }
+
+    details p {
+        margin-top: 10px;
+    }
+
+    details a {
+        font-weight: bold;
+    }
+
+    .social-icons {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .social-icons a {
+        color: #666;
+        font-size: 28px;
+        margin: 0 12px;
+        transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+        color: #222;
+    }
+
 </style>
 ```
 
 </head>
 
+
 <body>
 
 <div class="header">
+
     <h1>Zhengwei Zhang</h1>
+
     <p>
         Health Data Scientist | Biomedical AI Researcher
     </p>
 
-```
+    <div class="social-icons">
+
+        <a href="mailto:zhengwei.zhang@ucsf.edu" target="_blank">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/ZhangZwaa" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/zhengwei-zhang-8b51b8331/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+    </div>
+
+</div>
 <p>
     San Francisco, CA
 </p>
@@ -74,11 +135,15 @@
 <h2>About Me</h2>
 
 <p>
-I am a Master's student in Health Data Science at the University of California, San Francisco (UCSF).
-My interests lie in biomedical AI, machine learning, computational biology, and precision medicine.
-I enjoy developing statistical and machine learning approaches to better understand disease processes and support clinical decision making.
-</p>
+I am a Health Data Science graduate student at the University of California, San Francisco (UCSF), with research experience spanning biomedical AI, statistical modeling, medical imaging, and translational data science.
 
+My current work focuses on cancer risk modeling and machine learning applications in healthcare. More broadly, I am interested in computational biology, precision medicine, and developing data-driven methods to better understand disease mechanisms and improve clinical decision-making.
+</p>
+<h2>Current Research</h2>
+
+<p>
+Currently working on the eGene Study at UCSF, investigating determinants of cancer risk among individuals carrying hereditary cancer-associated mutations using statistical learning and epidemiological approaches.
+</p>
 <h2>Research Interests</h2>
 
 <ul>
@@ -90,35 +155,65 @@ I enjoy developing statistical and machine learning approaches to better underst
     <li>Precision Medicine</li>
 </ul>
 
-<h2>Featured Projects</h2>
+<h2>Research Projects</h2>
 
-<div class="project">
-    <h3>eGene Cancer Risk Modeling</h3>
-    <p>
-        Analyzed clinical and epidemiological data from hereditary cancer mutation carriers using logistic regression, LASSO feature selection, and gene-environment interaction analysis.
-    </p>
-</div>
+<details>
+    <summary>
+        <strong>eGene Study: Cancer Risk Modeling</strong>
+    </summary>
 
-<div class="project">
-    <h3>Breast Cancer Classification</h3>
-    <p>
-        Developed a dynamic multi-scale deep learning model with attention mechanisms for breast cancer diagnosis.
-    </p>
-</div>
+```
+<p>
+    Investigating determinants of cancer risk among individuals carrying hereditary cancer-associated mutations using statistical learning approaches.
+</p>
 
-<div class="project">
-    <h3>Vascular Image Segmentation</h3>
-    <p>
-        Built deep learning models for vascular segmentation using PyTorch and medical imaging datasets.
-    </p>
-</div>
+<p>
+    Dataset: 1,603 participants and 216 variables.
+</p>
 
-<div class="project">
-    <h3>Continuous Glucose Monitoring</h3>
-    <p>
-        Developed Bidirectional LSTM and Dynamic Time Warping algorithms for physiological time-series prediction and anomaly detection.
-    </p>
-</div>
+<a href="egene.html">Read More →</a>
+```
+
+</details>
+
+<br>
+
+<details>
+    <summary>
+        <strong>Dynamic Multi-Scale Breast Cancer Diagnosis</strong>
+    </summary>
+
+```
+<p>
+    Developed an attention-based deep learning framework for breast cancer classification from medical imaging data.
+</p>
+
+<p>
+    Performance: Accuracy 0.87, AUC 0.92.
+</p>
+
+<a href="breast_cancer.html">Read More →</a>
+```
+
+</details>
+
+<br>
+
+<details>
+    <summary>
+        <strong>Continuous Glucose Monitoring Prediction</strong>
+    </summary>
+
+```
+<p>
+    Developed personalized physiological time-series prediction algorithms using Bidirectional LSTM and Dynamic Time Warping.
+</p>
+
+<a href="cgm.html">Read More →</a>
+```
+
+</details>
+
 
 <h2>Publications</h2>
 
@@ -151,14 +246,14 @@ Teaching Assistant, Machine Learning in R for Biomedical Sciences, UCSF.
 
 <p>
 GitHub:
-<a href="https://github.com/YOUR_USERNAME">
-https://github.com/YOUR_USERNAME
+<a href="https://github.com/ZhangZwaa">
+https://github.com/ZhangZwaa
 </a>
 </p>
 
 <p>
 LinkedIn:
-<a href="#">
+<a href="https://www.linkedin.com/in/zhengwei-zhang-8b51b8331/">
 Add Your LinkedIn URL Here
 </a>
 </p>
