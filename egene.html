@@ -275,16 +275,16 @@
             <div class="subtitle">
                 Behavioral and environmental factors associated with cancer risk by pathogenic variant status.
                 This project examines how lifestyle, medication, medical history, and environmental exposures
-                relate to cancer risk in a hereditary-cancer-enriched cohort. :contentReference[oaicite:1]{index=1}
+                relate to cancer risk in a hereditary-cancer-enriched cohort.
             </div>
 
-            <div class="badge-row">
+            <!-- <div class="badge-row">
                 <span class="badge">UCSF</span>
                 <span class="badge">Eureka Platform</span>
                 <span class="badge">Cross-sectional survey</span>
                 <span class="badge">Logistic regression</span>
                 <span class="badge">LASSO</span>
-            </div>
+            </div> -->
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -296,7 +296,7 @@
                     <div class="stat-label">questionnaire items</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">210+</div>
+                    <div class="stat-number">300+</div>
                     <div class="stat-label">variables evaluated</div>
                 </div>
             </div>
@@ -308,12 +308,12 @@
                 The eGene Study is a participant-reported cohort designed to explore whether modifiable exposures
                 and clinical history are associated with cancer risk in people with and without pathogenic variants.
                 The central question is whether these associations differ by genetic background, especially in
-                individuals already at elevated hereditary risk. :contentReference[oaicite:2]{index=2}
+                individuals already at elevated hereditary risk.
             </p>
             <p>
                 In the main analysis, the study evaluated demographic, reproductive, medication, lifestyle, medical
                 history, and environmental variables, then tested their association with overall cancer risk and
-                selected cancer subgroups. :contentReference[oaicite:3]{index=3}
+                selected cancer subgroups.
             </p>
         </div>
 
@@ -324,20 +324,20 @@
                 <p>
                     This was a cross-sectional analysis of survey data collected through the Eureka digital platform
                     between 2020 and 2025. Participants were recruited through multiple channels, including EHR outreach,
-                    email campaigns, newsletters, and clinic-based recruitment. :contentReference[oaicite:4]{index=4}
+                    email campaigns, newsletters, and clinic-based recruitment.
                 </p>
 
                 <h3>Data collection</h3>
                 <p>
                     The questionnaire covered demographics, reproductive factors, medication use, lifestyle factors,
                     medical history, and environmental exposures. Genetic testing status was self-reported and used to
-                    define pathogenic variant carrier status. :contentReference[oaicite:5]{index=5}
+                    define pathogenic variant carrier status.
                 </p>
 
                 <h3>Preprocessing</h3>
                 <p>
                     Survey versions were harmonized, free-text responses were categorized with a Python-based workflow,
-                    and selected continuous variables were grouped for interpretation and model stability. :contentReference[oaicite:6]{index=6}
+                    and selected continuous variables were grouped for interpretation and model stability.
                 </p>
             </div>
 
@@ -356,15 +356,15 @@
             <ul>
                 <li>Descriptive statistics for participant characteristics.</li>
                 <li>Univariate logistic regression to screen exposures by PV status.</li>
-                <li>LASSO for feature selection and reduction of collinearity.</li>
+                <li>LASSO for feature selection and collinearity reduction.</li>
                 <li>Stability-based selection repeated multiple times.</li>
                 <li>Multivariable logistic regression with subgroup analyses.</li>
-                <li>Breast cancer and prostate cancer subgroup models. :contentReference[oaicite:7]{index=7}</li>
+                <li>Breast cancer and prostate cancer subgroup models.</li>
             </ul>
 
             <div class="callout">
                 R was used for the statistical modeling, while Python was used for preprocessing and free-text
-                classification. :contentReference[oaicite:8]{index=8}
+                classification.
             </div>
         </div>
 
@@ -375,7 +375,7 @@
                 <p>
                     Several exposures were associated with cancer risk in the full cohort, including hepatitis B
                     vaccination in a protective direction and thyroid medication, smallpox vaccination, and steroid
-                    use in a positive direction. :contentReference[oaicite:9]{index=9}
+                    use in a positive direction.
                 </p>
             </div>
 
@@ -384,7 +384,6 @@
                 <p>
                     Some associations remained in PV carriers, and vitamin D supplementation was significant only in
                     this subgroup. Environmental exposures also appeared more heterogeneous by carrier status.
-                    :contentReference[oaicite:10]{index=10}
                 </p>
             </div>
 
@@ -392,7 +391,7 @@
                 <div class="finding-title">Breast cancer analysis</div>
                 <p>
                     In women, PV carrier status remained strongly associated with breast cancer, and meat consumption,
-                    selected vaccinations, and non-cancer radiation exposure showed additional signals. :contentReference[oaicite:11]{index=11}
+                    selected vaccinations, and non-cancer radiation exposure showed additional signals.
                 </p>
             </div>
 
@@ -400,7 +399,7 @@
                 <div class="finding-title">Prostate cancer analysis</div>
                 <p>
                     In men, vitamin D supplementation and family cancer history were associated with prostate cancer
-                    risk in the subgroup analysis. :contentReference[oaicite:12]{index=12}
+                    risk in the subgroup analysis.
                 </p>
             </div>
         </div>
@@ -452,7 +451,7 @@
             <p>
                 Your author contribution section makes this easy to showcase: you led investigation, methodology,
                 formal analysis, data curation, visualization, and drafting/revision of the manuscript. This is worth
-                highlighting prominently on the project page. :contentReference[oaicite:13]{index=13}
+                highlighting prominently on the project page.
             </p>
         </div>
 
@@ -465,7 +464,7 @@
                 <li>Some subgroup estimates are imprecise because of small sample sizes.</li>
             </ul>
             <p class="section-note">
-                These points align with the limitations discussed in the manuscript. :contentReference[oaicite:14]{index=14}
+                These points align with the limitations discussed in the manuscript.
             </p>
         </div>
 
@@ -474,7 +473,7 @@
             <p>
                 Future work can extend this project with larger cohorts, prospective follow-up, and more objective
                 exposure measurement. That would make the page feel complete while leaving room for the eventual
-                manuscript PDF or conference poster. :contentReference[oaicite:15]{index=15}
+                manuscript PDF or conference poster.
             </p>
         </div>
     </div>
