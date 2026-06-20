@@ -356,6 +356,41 @@
     text-align: left;
     line-height: 1.6;
 }
+
+        .figure-container {
+
+    position: relative;
+}
+
+.back-figure-btn {
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.7);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.back-figure-btn:hover {
+
+    background: rgba(0,0,0,0.9);
+}
         @media (max-width: 900px) {
             .stats-grid,
             .two-col,
@@ -479,77 +514,67 @@
     
     <div class="two-col">
     <div class="workflow-block">
-    
+
+    <div class="figure-container">
+
+        <button id="backButton"
+                class="back-figure-btn"
+                onclick="showFigure('mdnet.png')">
+
+            ×
+
+        </button>
+
         <img src="mdnet.png"
-         alt="MDNet Architecture"
-         class="study-figure"
-         id="methodFigure">
-        <li>
-            <a href="#"
-               onclick="showFigure('pam.jpg'); return false;">
-               Spatial Attention Module (PAM)
-            </a>
-        </li>
-        
-        <li>
-            <a href="#"
-               onclick="showFigure('dcm.png'); return false;">
-               Dynamic Multi-Scale Fusion (DAM)
-            </a>
-        </li>
-        
-        <li>
-            <a href="#"
-               onclick="showFigure('mdnet.png'); return false;">
-               MDNet Overview
-            </a>
-        </li>
-        <div class="figure-caption">
-    
-            <em>
-                Overview of the proposed MDNet architecture integrating
-                a spatial attention module (PAM) and a dynamic multi-scale
-                fusion module (DAM) for calcified plaque segmentation.
-            </em>
-    
-        </div>
-    
+             id="methodFigure"
+             class="study-figure">
+
     </div>
+
+    <div class="figure-caption">
+
+        <em>
+            Overview of the proposed MDNet architecture integrating a spatial attention module (PAM) and a dynamic multi-scale fusion module (DAM).
+        </em>
+
+    </div>
+
+</div>
     
     <div class="section-card">
-    
-        <h3>Key Components</h3>
 
-        <ul>
-        
-            <li>
-                <strong>ResNet Backbone</strong><br>
-                Extracts hierarchical feature representations from cardiovascular CTA images.
-            </li>
-        
-            <li>
-                <strong>
-                    <a href="#" onclick="openModal('pam.jpg'); return false;">
-                        Spatial Attention Module (PAM)
-                    </a>
-                </strong><br>
-        
-                Captures long-range spatial dependencies and enhances contextual information across image regions.
-            </li>
-        
-            <li>
-                <strong>
-                    <a href="#" onclick="openModal('dcm.png'); return false;">
-                        Dynamic Multi-Scale Fusion (DAM)
-                    </a>
-                </strong><br>
-        
-                Adaptively integrates semantic information from multiple receptive fields to improve segmentation of irregular calcified plaques.
-            </li>
-        
-        </ul>
-    
-    </div>
+    <h3>Key Components</h3>
+
+    <ul>
+
+        <li>
+            <strong>ResNet Backbone</strong><br>
+            Extracts hierarchical feature representations from cardiovascular CTA images.
+        </li>
+
+        <li>
+            <strong>
+                <a href="#" onclick="showFigure('pam.jpg'); return false;">
+                    Spatial Attention Module (PAM)
+                </a>
+            </strong><br>
+
+            Captures long-range spatial dependencies and enhances contextual information.
+        </li>
+
+        <li>
+            <strong>
+                <a href="#" onclick="showFigure('dcm.png'); return false;">
+                    Dynamic Multi-Scale Fusion (DAM)
+                </a>
+            </strong><br>
+
+            Adaptively integrates semantic information from multiple receptive fields.
+        </li>
+
+    </ul>
+
+</div>
     
     </div>
 
@@ -635,7 +660,25 @@
 function showFigure(img) {
 
     document.getElementById("methodFigure").src = img;
+
+    const btn = document.getElementById("backButton");
+
+    if (img === "mdnet.png") {
+
+        btn.style.display = "none";
+
+    } else {
+
+        btn.style.display = "block";
+
+    }
 }
+
+window.onload = function() {
+
+    document.getElementById("backButton").style.display = "none";
+
+};
 
 </script>
 </body>
