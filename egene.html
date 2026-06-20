@@ -330,7 +330,29 @@
             align-items: center;
             gap: 6px;
         }
-    
+        .repo-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        
+            background: #05203a;
+            color: white !important;
+        
+            padding: 14px 22px;
+        
+            border-radius: 10px;
+        
+            font-weight: 600;
+        
+            transition: all 0.2s ease;
+        }
+        
+        .repo-button:hover {
+            background: #0b3b67;
+            text-decoration: none;
+        
+            transform: translateY(-2px);
+        }
         @media (max-width: 900px) {
             .stats-grid,
             .two-col,
@@ -557,7 +579,18 @@
             </div>
         
         </div>
-
+        <div style="text-align:center; margin-top:30px;">
+        
+            <a href="https://github.com/YOUR_REPO"
+               target="_blank"
+               class="repo-button">
+        
+                <i class="fab fa-github"></i>
+                View Project Repository
+        
+            </a>
+        
+        </div>
         <!-- <h2>Results Visuals</h2>
         <div class="grid-2">
             <div>
