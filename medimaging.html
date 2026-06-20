@@ -387,30 +387,28 @@
 
         .results-layout {
 
-        ```
-        display: grid;
+            display: grid;
         
-        grid-template-columns: 3fr 1fr;
+            grid-template-columns: 4fr 1fr;
         
-        gap: 20px;
+            gap: 20px;
         
-        margin-top: 20px;
-        ```
+            margin-top: 20px;
         
+            align-items: start;
         }
         
         .results-metrics {
         
-        ```
-        background: #fafafa;
+            background: #fafafa;
         
-        border: 1px solid #e8e8e8;
+            border: 1px solid #e8e8e8;
         
-        border-radius: 16px;
+            border-radius: 16px;
         
-        padding: 20px;
-        ```
+            padding: 20px;
         
+            height: 100%;
         }
         
         .metric-card {
@@ -671,63 +669,65 @@
         </div>
         
         <div class="results-layout">
-        <div class="workflow-block">
+
+            <div class="workflow-block">
         
-            <img src="compare.png"
-                 alt="Segmentation Comparison"
-                 class="study-figure">
+                <img src="compare.png"
+                     alt="Segmentation Comparison"
+                     class="study-figure">
         
-            <div class="figure-caption">
+                <div class="figure-caption">
         
-                <em>
-                    Comparison of segmentation results produced by different segmentation networks.
-                </em>
+                    <em>
+                        Comparison of segmentation results produced by different segmentation networks.
+                    </em>
         
-            </div>
-        
-        </div>
-        
-        <div class="results-metrics">
-        
-            <h3>Performance</h3>
-        
-            <div class="metric-card">
-        
-                <div class="metric-value">
-                    0.8396
-                </div>
-        
-                <div class="metric-label">
-                    Dice
                 </div>
         
             </div>
         
-            <div class="metric-card">
+            <div class="results-metrics">
         
-                <div class="metric-value">
-                    0.7597
+                <h3>Performance</h3>
+        
+                <div class="metric-card">
+        
+                    <div class="metric-value">
+                        0.8396
+                    </div>
+        
+                    <div class="metric-label">
+                        Dice Score
+                    </div>
+        
                 </div>
         
-                <div class="metric-label">
-                    MIoU
+                <div class="metric-card">
+        
+                    <div class="metric-value">
+                        0.7597
+                    </div>
+        
+                    <div class="metric-label">
+                        MIoU
+                    </div>
+        
+                </div>
+        
+                <div class="metric-card">
+        
+                    <div class="metric-value">
+                        6501 MB
+                    </div>
+        
+                    <div class="metric-label">
+                        GPU Memory
+                    </div>
+        
                 </div>
         
             </div>
         
-            <div class="metric-card">
-        
-                <div class="metric-value">
-                    6501 MB
-                </div>
-        
-                <div class="metric-label">
-                    Memory Usage
-                </div>
-        
-            </div>
-        
-        </div>
         </div>
 
 
