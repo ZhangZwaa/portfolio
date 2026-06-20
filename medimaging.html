@@ -315,6 +315,40 @@
             gap: 6px;
         }
 
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+        
+        .dataset-visual {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .dataset-figure-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .study-figure {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            background: white;
+        }
+        
+        .figure-caption {
+            margin-top: 10px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
         @media (max-width: 900px) {
             .stats-grid,
             .two-col,
@@ -403,15 +437,17 @@
             </ul>
         
         </div>
-            <div>
-                <img src="rawimage.png"
-                     alt="Experimental Data Preview"
-                     class="study-figure">
-                
+            <div class="dataset-visual">
+                <div class="dataset-figure-wrap">
+                    <img src="dataset-preview.png"
+                         alt="Experimental Data Preview"
+                         class="study-figure">
+                </div>
+            
                 <p class="figure-caption">
-                    Experimental data preview.<br>Top row: original cardiovascular CTA images.<br>
-                    Middle row: cropped regions around calcified plaques.<br>
-                    Bottom row: corresponding plaque segmentation masks.
+                    Experimental data preview. Top row: original cardiovascular CTA images.
+                    Middle row: cropped regions around calcified plaques. Bottom row:
+                    corresponding plaque segmentation masks.
                 </p>
             </div>
 
