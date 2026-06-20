@@ -481,9 +481,29 @@
     <div class="workflow-block">
     
         <img src="mdnet.png"
-             alt="MDNet Architecture"
-             class="study-figure">
-    
+         alt="MDNet Architecture"
+         class="study-figure"
+         id="methodFigure">
+        <li>
+            <a href="#"
+               onclick="showFigure('pam.jpg'); return false;">
+               Spatial Attention Module (PAM)
+            </a>
+        </li>
+        
+        <li>
+            <a href="#"
+               onclick="showFigure('dcm.png'); return false;">
+               Dynamic Multi-Scale Fusion (DAM)
+            </a>
+        </li>
+        
+        <li>
+            <a href="#"
+               onclick="showFigure('mdnet.png'); return false;">
+               MDNet Overview
+            </a>
+        </li>
         <div class="figure-caption">
     
             <em>
@@ -610,18 +630,11 @@
         </span>
         <img id="modalImage" class="modal-content">
     </div>
-    <script>
+<script>
 
-function openModal(imagePath) {
+function showFigure(img) {
 
-    document.getElementById("imageModal").style.display = "block";
-
-    document.getElementById("modalImage").src = imagePath;
-}
-
-function closeModal() {
-
-    document.getElementById("imageModal").style.display = "none";
+    document.getElementById("methodFigure").src = img;
 }
 
 </script>
