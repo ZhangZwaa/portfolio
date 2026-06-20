@@ -219,7 +219,7 @@
             font-size: 0.92rem;
             color: var(--muted);
             margin-top: 10px;
-            text-align: center;
+            /* text-align: center; */
         }
 
         .method-grid {
@@ -435,6 +435,17 @@
                 <li>Binary segmentation task</li>
                 <li>7:1:2 train/validation/test split</li>
             </ul>
+
+            <p>
+            The dataset was manually annotated to identify calcified plaque regions
+            within coronary CTA images. Corresponding XML annotations were converted
+            into binary segmentation masks for model training and evaluation.
+            </p>
+
+            <p>
+            To reduce potential correlation between slices from the same patient,
+            images were randomly shuffled prior to dataset splitting.
+            </p>
         
         </div>
             <div class="dataset-visual">
@@ -445,9 +456,21 @@
                 </div>
             
                 <p class="figure-caption">
-                    Experimental data preview. Top row: original cardiovascular CTA images.
-                    Middle row: cropped regions around calcified plaques. Bottom row:
-                    corresponding plaque segmentation masks.
+                
+                    <strong style="display:block; text-align:center;">
+                        Experimental Data Preview
+                    </strong>
+                
+                    Top row: original cardiovascular CTA images.
+                
+                    <br>
+                
+                    Middle row: cropped regions around calcified plaques.
+                
+                    <br>
+                
+                    Bottom row: corresponding plaque segmentation masks.
+                
                 </p>
             </div>
 
