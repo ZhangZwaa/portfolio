@@ -387,31 +387,30 @@
         <h2>Dataset</h2>
         <div class="two-col">
             <div class="section-card">
-                <h3>Study setup</h3>
-                <p>
-                    The dataset includes 4046 cardiovascular CTA images extracted from 127 patients, with
-                    corresponding XML label annotations for calcified plaques.
-                </p>
-
-                <h3>Data split</h3>
-                <p>
-                    The images were shuffled and split into training, validation, and test sets using a 7:1:2 ratio.
-                </p>
-
-                <h3>Label format</h3>
-                <p>
-                    The segmentation task is binary: calcified area vs. non-calcified area.
-                </p>
-            </div>
-
+            <h3>Dataset Overview</h3>
+        
+            <p>
+                The dataset consists of 4046 cardiovascular CTA images collected from
+                127 patients with corresponding calcified plaque annotations.
+            </p>
+        
+            <ul>
+                <li>127 patients</li>
+                <li>4046 cardiovascular CTA images</li>
+                <li>XML-based plaque annotations</li>
+                <li>Binary segmentation task</li>
+                <li>7:1:2 train/validation/test split</li>
+            </ul>
+        
+        </div>
             <div>
                 <img src="rawimage.png"
                      alt="Experimental Data Preview"
                      class="study-figure">
                 
                 <p class="figure-caption">
-                    Experimental data preview. Top row: original cardiovascular CTA images.
-                    Middle row: cropped regions around calcified plaques.
+                    Experimental data preview.<br>Top row: original cardiovascular CTA images.<br>
+                    Middle row: cropped regions around calcified plaques.<br>
                     Bottom row: corresponding plaque segmentation masks.
                 </p>
             </div>
