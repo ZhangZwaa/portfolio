@@ -220,23 +220,23 @@
             color: var(--muted);
             margin-top: 10px;
             /* text-align: center; */
-        } */
+        /* } */
 
-        .method-grid {
+        /* .method-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
             margin-bottom: 18px;
-        }
+        } */ */
 
-        .method-card {
+        /* .method-card {
             background: #fff;
             border: 1px solid #e8e8e8;
             border-radius: 16px;
             padding: 18px 18px 16px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        }
-
+        } */
+/* 
         .method-card h3 {
             margin: 0 0 8px 0;
             font-size: 1.08rem;
@@ -246,7 +246,7 @@
             margin: 0;
             color: #555;
             font-size: 0.98rem;
-        }
+        } */
 
         .workflow-block,
         .results-block {
@@ -467,47 +467,77 @@
                 </div>
             
                 <div class="figure-caption">
-                    <div class="caption-title">Experimental Data Preview</div>
-                    <div class="caption-body">
-                        Top row: original cardiovascular CTA images.<br>
-                        Middle row: cropped regions around calcified plaques.<br>
-                        Bottom row: corresponding plaque segmentation masks.
-                    </div>
+                
+                    <em>
+                        Experimental data preview showing representative cardiovascular CTA images,
+                        cropped regions containing calcified plaques, and their corresponding
+                        segmentation masks.
+                    </em>
+                
                 </div>
             </div>
 
         </div>
 
         <h2>Method</h2>
-        <div class="method-grid">
-            <div class="method-card">
-                <h3>Backbone</h3>
-                <p>
-                    ResNet extracts feature representations from cardiovascular CTA input images.
-                </p>
-            </div>
-
-            <div class="method-card">
-                <h3>PAM</h3>
-                <p>
-                    The spatial attention module captures long-range dependencies across pixel locations.
-                </p>
-            </div>
-
-            <div class="method-card">
-                <h3>DAM</h3>
-                <p>
-                    The dynamic multi-scale fusion module improves semantic capture for complex calcified contours.
-                </p>
-            </div>
+<h2>Method</h2>
+    
+    <div class="two-col">
+    <div class="workflow-block">
+    
+        <img src="mdnet.png"
+             alt="MDNet Architecture"
+             class="study-figure">
+    
+        <div class="figure-caption">
+    
+            <em>
+                Overview of the proposed MDNet architecture integrating
+                a spatial attention module (PAM) and a dynamic multi-scale
+                fusion module (DAM) for calcified plaque segmentation.
+            </em>
+    
         </div>
+    
+    </div>
+    
+    <div class="section-card">
+    
+        <h3>Key Components</h3>
+    
+        <ul>
+    
+            <li>
+                <strong>ResNet Backbone</strong><br>
+                Extracts hierarchical feature representations from
+                cardiovascular CTA images.
+            </li>
+    
+            <li>
+                <strong>Spatial Attention Module (PAM)</strong><br>
+                Captures long-range spatial dependencies and enhances
+                contextual information across image regions.
+            </li>
+    
+            <li>
+                <strong>Dynamic Multi-Scale Fusion (DAM)</strong><br>
+                Adaptively integrates semantic information from multiple
+                receptive fields to improve segmentation of irregular
+                calcified plaques.
+            </li>
+    
+        </ul>
+    
+        <p>
+            By combining global spatial attention with adaptive multi-scale
+            feature fusion, MDNet improves contour fitting and segmentation
+            performance in complex cardiovascular CTA images.
+        </p>
+    
+    </div>
+    
+    </div>
 
-        <div class="workflow-block">
-            <img src="Flowchart.png" alt="MDNet workflow" class="study-figure">
-            <p class="figure-caption">
-                Figure 1. MDNet network structure and analytical pipeline.
-            </p>
-        </div>
 
         <h2>Results</h2>
         <div class="grid-2">
