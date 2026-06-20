@@ -1,150 +1,517 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Learning for Medical Image Analysis | Zhengwei Zhang</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MDNet for Cardiovascular CTA Segmentation | Zhengwei Zhang</title>
 
+    <style>
+        :root {
+            --ucsf-blue: #005587;
+            --text: #333;
+            --heading: #222;
+            --muted: #666;
+            --line: #e8e8e8;
+            --soft-bg: #fafafa;
+            --panel-bg: #f7fbff;
+            --panel-border: #e3edf5;
+            --footer-bg: #05203a;
+        }
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: auto;
-        padding: 40px;
-        line-height: 1.7;
-        color: #333;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    h1 {
-        color: #005587;
-    }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
 
-    h2 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 5px;
-        margin-top: 35px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
 
-    a {
-        color: #005587;
-        text-decoration: none;
-    }
+        a {
+            color: var(--ucsf-blue);
+            text-decoration: none;
+        }
 
-    .back-link {
-        display: inline-block;
-        margin-bottom: 25px;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    .highlight {
-        background: #f5f5f5;
-        padding: 15px;
-        border-radius: 8px;
-    }
-</style>
+        h1, h2, h3, h4, p {
+            margin-top: 0;
+        }
 
+        h1 {
+            color: var(--ucsf-blue);
+            margin-bottom: 8px;
+            font-size: 2.2rem;
+        }
 
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin: 38px 0 18px;
+            color: var(--heading);
+        }
+
+        h3 {
+            margin: 22px 0 10px;
+            color: var(--heading);
+        }
+
+        p {
+            margin: 0 0 16px 0;
+        }
+
+        ul {
+            margin: 8px 0 14px;
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .main-content {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+            padding: 40px 0 50px;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f7fbff 0%, #eef5fb 100%);
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 26px;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eef5fb;
+            color: var(--ucsf-blue);
+            border: 1px solid #d7e7f5;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #e6e6e6;
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ucsf-blue);
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .section-card {
+            background: var(--soft-bg);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 22px 22px 18px;
+            margin-top: 18px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #e6e6e6;
+            border-radius: 14px;
+            padding: 16px 16px 14px;
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: var(--ucsf-blue);
+            margin-bottom: 8px;
+        }
+
+        .study-figure {
+            width: 100%;
+            display: block;
+            margin: 14px auto 0;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .figure-placeholder {
+            border: 2px dashed #b9cbe0;
+            background: #f8fbff;
+            border-radius: 14px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            text-align: center;
+            color: #46627c;
+        }
+
+        .figure-placeholder.small {
+            min-height: 180px;
+        }
+
+        .figure-caption {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .method-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 18px 18px 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .method-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.08rem;
+        }
+
+        .method-card p {
+            margin: 0;
+            color: #555;
+            font-size: 0.98rem;
+        }
+
+        .workflow-block,
+        .results-block {
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .repo-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .repo-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #05203a;
+            color: white !important;
+            padding: 14px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .repo-button:hover {
+            background: #0b3b67;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 36px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        .footer a:hover {
+            color: #d0d8e0;
+        }
+
+        .mini-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .mini-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid,
+            .two-col,
+            .grid-2,
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                width: min(1100px, 92%);
+                padding: 32px 0 40px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="main-content">
+        <a class="back-link" href="index.html">← Back to Home</a>
 
-<a class="back-link" href="index.html">
-    ← Back to Home
-</a>
+        <div class="hero">
+            <h1>MDNet for Cardiovascular CTA Segmentation</h1>
 
-<h1>Deep Learning for Medical Image Analysis</h1>
+            <div class="subtitle">
+                A segmentation method for cardiovascular calcified plaque based on dynamic multi-scale fusion
+                and spatial attention, designed to improve contour fitting and plaque delineation in complex CTA images.
+            </div>
 
-<p>
-This project explores the application of deep learning techniques to medical image analysis, with a focus on cancer diagnosis and vascular image segmentation. Through these studies, I investigated how neural networks can assist clinicians in extracting meaningful information from complex biomedical imaging data.
-</p>
+            <div class="badge-row">
+                <span class="badge">CTA</span>
+                <span class="badge">Calcified Plaque Segmentation</span>
+                <span class="badge">Spatial Attention</span>
+                <span class="badge">Dynamic Multi-Scale Fusion</span>
+                <span class="badge">Medical Image Analysis</span>
+            </div>
 
-<h2>Research Motivation</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">127</div>
+                    <div class="stat-label">patients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4046</div>
+                    <div class="stat-label">CTA images</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0.8396</div>
+                    <div class="stat-label">Dice score</div>
+                </div>
+            </div>
+        </div>
 
-<p>
-Medical imaging plays a central role in disease diagnosis and treatment planning. However, manual interpretation is often time-consuming and subject to variability. Deep learning offers an opportunity to improve efficiency, consistency, and diagnostic accuracy through automated image analysis.
-</p>
+        <h2>Why It Matters</h2>
+        <div class="section-card">
+            <p>
+                Calcified plaque segmentation is essential for evaluating coronary atherosclerosis and computing
+                calcification scores. Manual annotation is time-consuming, and calcified regions can be small,
+                irregular, and difficult to delineate accurately.
+            </p>
+            <p>
+                This project addresses automatic segmentation in cardiovascular CTA images using a method that
+                combines spatial attention and dynamic multi-scale feature fusion.
+            </p>
+        </div>
 
-<div class="highlight">
-    Focus Areas:
-    <ul>
-        <li>Medical Image Classification</li>
-        <li>Image Segmentation</li>
-        <li>Attention Mechanisms</li>
-        <li>Deep Learning for Healthcare</li>
-    </ul>
-</div>
+        <h2>Dataset</h2>
+        <div class="two-col">
+            <div class="section-card">
+                <h3>Study setup</h3>
+                <p>
+                    The dataset includes 4046 cardiovascular CTA images extracted from 127 patients, with
+                    corresponding XML label annotations for calcified plaques.
+                </p>
 
-<h2>Project 1: Breast Cancer Classification</h2>
+                <h3>Data split</h3>
+                <p>
+                    The images were shuffled and split into training, validation, and test sets using a 7:1:2 ratio.
+                </p>
 
-<p>
-Developed a dynamic multi-scale fusion framework with attention mechanisms for breast cancer diagnosis from medical imaging data.
-</p>
+                <h3>Label format</h3>
+                <p>
+                    The segmentation task is binary: calcified area vs. non-calcified area.
+                </p>
+            </div>
 
-<h3>Methods</h3>
+            <div class="figure-placeholder">
+                <strong>Dataset / preprocessing figure</strong>
+                <div class="figure-caption">
+                    Place a dataset preview, label example, or cropped plaque visualization here.
+                </div>
+            </div>
+        </div>
 
-<ul>
-    <li>Multi-scale feature extraction</li>
-    <li>Attention-based feature fusion</li>
-    <li>Deep convolutional neural networks</li>
-    <li>PyTorch implementation</li>
-</ul>
+        <h2>Method</h2>
+        <div class="method-grid">
+            <div class="method-card">
+                <h3>Backbone</h3>
+                <p>
+                    ResNet extracts feature representations from cardiovascular CTA input images.
+                </p>
+            </div>
 
-<h3>Results</h3>
+            <div class="method-card">
+                <h3>PAM</h3>
+                <p>
+                    The spatial attention module captures long-range dependencies across pixel locations.
+                </p>
+            </div>
 
-<ul>
-    <li>Accuracy: 0.87</li>
-    <li>AUC: 0.92</li>
-</ul>
+            <div class="method-card">
+                <h3>DAM</h3>
+                <p>
+                    The dynamic multi-scale fusion module improves semantic capture for complex calcified contours.
+                </p>
+            </div>
+        </div>
 
-<p>
-The study demonstrated that incorporating multi-scale information and adaptive attention mechanisms improved classification performance and enhanced model robustness.
-</p>
+        <div class="workflow-block">
+            <img src="Flowchart.png" alt="MDNet workflow" class="study-figure">
+            <p class="figure-caption">
+                Figure 1. MDNet network structure and analytical pipeline.
+            </p>
+        </div>
 
-<h2>Project 2: Vascular Segmentation</h2>
+        <h2>Results</h2>
+        <div class="grid-2">
+            <div class="info-card">
+                <div class="info-title">Segmentation Quality</div>
+                <p>
+                    The model achieved strong segmentation performance on calcified plaque regions, with improved
+                    contour completeness and boundary fitting.
+                </p>
+            </div>
 
-<p>
-Developed deep learning models for automatic vascular segmentation from cardiovascular imaging datasets.
-</p>
+            <div class="info-card">
+                <div class="info-title">Efficiency</div>
+                <p>
+                    The method maintained manageable memory usage while improving accuracy over the baseline
+                    comparison method.
+                </p>
+            </div>
 
-<h3>Methods</h3>
+            <div class="info-card">
+                <div class="info-title">Comparison Figure</div>
+                <div class="figure-placeholder small">
+                    Insert MDNet vs. DANet comparison figure here.
+                </div>
+            </div>
 
-<ul>
-    <li>Image preprocessing and augmentation</li>
-    <li>Deep learning-based semantic segmentation</li>
-    <li>PyTorch training pipelines</li>
-    <li>Quantitative performance evaluation</li>
-</ul>
+            <div class="info-card">
+                <div class="info-title">Metrics</div>
+                <div class="figure-placeholder small">
+                    Insert Dice / MIoU / memory summary here.
+                </div>
+            </div>
+        </div>
 
-<h3>Results</h3>
+        <h2>Project Resources</h2>
+        <div class="section-card">
+            <p>
+                Code, figures, and additional project materials will be linked here.
+            </p>
 
-<ul>
-    <li>Dice Score: 0.84</li>
-    <li>mIoU: 0.76</li>
-</ul>
+            <div class="repo-container">
+                <a href="https://github.com/YOUR_REPO"
+                   target="_blank"
+                   class="repo-button">
+                    <i class="fab fa-github"></i>
+                    View Project Repository
+                </a>
+            </div>
+        </div>
 
-<p>
-The project focused on accurately identifying vascular structures from complex imaging data to support downstream biomedical analysis and clinical research applications.
-</p>
+        <h2>My Contribution</h2>
+        <div class="section-card">
+            <p>
+                I contributed to method development, experiment analysis, figure preparation, and manuscript
+                writing for this project.
+            </p>
+        </div>
+    </div>
 
-<h2>Technical Skills</h2>
-
-<ul>
-    <li>Python</li>
-    <li>PyTorch</li>
-    <li>Medical Imaging</li>
-    <li>Deep Learning</li>
-    <li>Image Processing</li>
-    <li>Model Evaluation</li>
-</ul>
-
-<h2>Future Directions</h2>
-
-<p>
-Future work may explore multimodal learning approaches that integrate imaging, clinical, and genomic information to improve disease characterization and support precision medicine applications.
-</p>
-
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Zhengwei Zhang</h3>
+            <p>Health Data Scientist | Biomedical AI Researcher</p>
+            <p><a href="mailto:zhengwei.zhang@ucsf.edu">zhengwei.zhang@ucsf.edu</a></p>
+            <div class="mini-links">
+                <a href="https://github.com/ZhangZwaa" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/zhengwei-zhang-8b51b8331/" target="_blank">LinkedIn</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
