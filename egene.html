@@ -399,7 +399,33 @@
         align-items: center;
         gap: 6px;
     }
+    .domain-grid {
 
+        display: grid;
+    
+        grid-template-columns: repeat(5, 1fr);
+    
+        gap: 12px;
+    
+        margin-top: 15px;
+    }
+    
+    .domain-card {
+    
+        background: white;
+    
+        border: 1px solid #e3edf5;
+    
+        border-radius: 12px;
+    
+        padding: 16px 12px;
+    
+        text-align: center;
+    
+        font-weight: 600;
+    
+        color: #005587;
+    }
     @media (max-width: 900px) {
         .stats-grid,
         .two-col,
@@ -564,12 +590,28 @@
     </p>
 
     <h3>Exposure Domains</h3>
-        <div class="badge-row">
-            <span class="badge">Demographics</span>
-            <span class="badge">Lifestyle</span>
-            <span class="badge">Environmental Exposures</span>
-            <span class="badge">Medical History</span>
-            <span class="badge">Medication</span>
+        <div class="domain-grid">
+        
+            <div class="domain-card">
+                Demographics
+            </div>
+        
+            <div class="domain-card">
+                Lifestyle
+            </div>
+        
+            <div class="domain-card">
+                Environmental Exposures
+            </div>
+        
+            <div class="domain-card">
+                Medical History
+            </div>
+        
+            <div class="domain-card">
+                Medication
+            </div>
+        
         </div>
     
         <p class="section-note">
