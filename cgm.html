@@ -720,29 +720,28 @@
 <div class="two-col">
 
     <div class="section-card">
-    <h3>False Alarm Reduction</h3>
-    
+   <h3>False Alarm Reduction</h3>
     <p>
-    Environmental disturbances and sensor artifacts can
-    introduce short-term fluctuations in CGM measurements,
-    leading to false glucose alarms.
+    Multiple anomaly detection algorithms were evaluated
+    for identifying transient sensor disturbances and
+    reducing false glucose alarms.
     </p>
     
-    <h3>Anomaly Detection Methods</h3>
+    <h3>Algorithm Comparison</h3>
     
     <p>
-    Multiple anomaly detection algorithms were evaluated,
-    including Minimum Covariance Determinant (MCD),
-    One-Class Support Vector Machine (OCSVM), and
-    Isolation Forest.
+    Ten anomaly detection methods were benchmarked,
+    including MCD, OCSVM, Isolation Forest, KNN,
+    LOF, KDE, SVDD, and Gaussian Mixture Models.
     </p>
     
     <h3>Key Finding</h3>
     
     <p>
-    MCD and OCSVM demonstrated the most stable performance,
-    achieving the highest alarm classification accuracy
-    across monitoring scenarios.
+    MCD consistently achieved the strongest overall
+    performance, while OCSVM and Isolation Forest
+    provided competitive results across multiple
+    evaluation metrics.
     </p>
 
     <div class="workflow-block">
@@ -755,7 +754,8 @@
         <div class="figure-caption">
 
             <em>
-                Anomaly detection workflow and alarm classification.
+                Performance comparison of multiple anomaly detection
+                algorithms for false alarm identification.
             </em>
 
         </div>
