@@ -1,140 +1,299 @@
-<!DOCTYPE html>
+<a href="index.html" class="back-link">← Back to Home</a>
 
-<html lang="en">
+<div class="hero">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physiological Time-Series Modeling | Zhengwei Zhang</title>
+    <h1>Personalized Continuous Glucose Monitoring</h1>
 
+    <div class="project-meta">
+        Undergraduate Research Project • Hangzhou Dianzi University • Oct 2023 – May 2024
+    </div>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: auto;
-        padding: 40px;
-        line-height: 1.7;
-        color: #333;
-    }
+    <p class="subtitle">
+        A personalized continuous glucose monitoring framework integrating
+        BiLSTM prediction, Dynamic Time Warping, online learning, and
+        anomaly detection to improve monitoring accuracy and reduce false alarms.
+    </p>
 
-    h1 {
-        color: #005587;
-    }
+    <div class="badge-row">
+        <span class="badge">CGM</span>
+        <span class="badge">BiLSTM</span>
+        <span class="badge">Online Learning</span>
+        <span class="badge">Dynamic Time Warping</span>
+        <span class="badge">Anomaly Detection</span>
+    </div>
 
-    h2 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 5px;
-        margin-top: 35px;
-    }
+    <div class="stats-grid">
 
-    a {
-        color: #005587;
-        text-decoration: none;
-    }
+        <div class="stat-card">
+            <div class="stat-number">7 Days</div>
+            <div class="stat-label">Continuous Monitoring</div>
+        </div>
 
-    .back-link {
-        display: inline-block;
-        margin-bottom: 25px;
-    }
+        <div class="stat-card">
+            <div class="stat-number">6.0 min</div>
+            <div class="stat-label">Estimated Lag</div>
+        </div>
 
-    .highlight {
-        background: #f5f5f5;
-        padding: 15px;
-        border-radius: 8px;
-    }
-</style>
+        <div class="stat-card">
+            <div class="stat-number">1/30</div>
+            <div class="stat-label">Update Time</div>
+        </div>
 
-
-</head>
-
-<body>
-
-<a class="back-link" href="index.html">
-    ← Back to Home
-</a>
-
-<h1>Physiological Time-Series Modeling for Continuous Glucose Monitoring</h1>
-
-<p>
-This project focuses on the development of machine learning methods for continuous physiological monitoring. By leveraging deep learning and time-series alignment techniques, the study aims to improve glucose prediction accuracy and reduce false alarms in continuous glucose monitoring systems.
-</p>
-
-<h2>Research Motivation</h2>
-
-<p>
-Continuous glucose monitoring (CGM) systems generate large volumes of physiological time-series data. Accurate prediction of glucose dynamics is essential for improving diabetes management, reducing adverse events, and supporting personalized healthcare interventions.
-</p>
-
-<div class="highlight">
-
-<strong>Focus Areas</strong>
-
-<ul>
-    <li>Physiological Time-Series Analysis</li>
-    <li>Deep Learning</li>
-    <li>Digital Health</li>
-    <li>Predictive Modeling</li>
-    <li>Personalized Monitoring</li>
-</ul>
+    </div>
 
 </div>
 
-<h2>Research Objectives</h2>
 
-<ul>
-    <li>Predict future glucose levels from continuous monitoring data</li>
-    <li>Improve personalized modeling of physiological dynamics</li>
-    <li>Reduce false alarms through anomaly detection</li>
-    <li>Enhance reliability of digital health monitoring systems</li>
-</ul>
+<h2>Why It Matters</h2>
 
-<h2>Methods</h2>
+<div class="section-card">
 
-<ul>
-    <li>Bidirectional Long Short-Term Memory (BiLSTM)</li>
-    <li>Dynamic Time Warping (DTW)</li>
-    <li>Anomaly Detection Algorithms</li>
-    <li>Time-Series Feature Engineering</li>
-</ul>
+    <p>
+        Continuous glucose monitoring systems measure interstitial glucose rather than
+        blood glucose directly, introducing physiological lag and potential prediction
+        errors. In addition, conventional threshold-based alarms often generate false
+        alerts caused by environmental fluctuations rather than true glycemic events.
+    </p>
 
-<p>
-The framework combines sequence modeling with temporal alignment techniques to better capture individual physiological patterns and improve prediction robustness.
-</p>
+    <p>
+        This project developed a personalized monitoring framework to improve glucose
+        prediction accuracy, estimate dynamic lag, and reduce false alarms in long-term
+        CGM monitoring.
+    </p>
+
+</div>
+
+
+<h2>Framework</h2>
+
+<div class="workflow-block">
+
+    <!-- Figure Placeholder -->
+    <img src="framework.png"
+         alt="Framework"
+         class="study-figure">
+
+    <div class="figure-caption">
+
+        <em>
+            Overall workflow of the personalized continuous glucose monitoring framework.
+        </em>
+
+    </div>
+
+</div>
+
+
+<h2>Prediction Module</h2>
+
+<div class="two-col">
+
+    <div class="section-card">
+
+        <h3>BiLSTM Prediction</h3>
+
+        <p>
+            A Bidirectional Long Short-Term Memory (BiLSTM) network was used
+            to model temporal glucose dynamics and generate short-term glucose
+            forecasts from continuous CGM measurements.
+        </p>
+
+        <p>
+            Online learning was incorporated to update model parameters
+            continuously as new monitoring data became available.
+        </p>
+
+    </div>
+
+    <div class="workflow-block">
+
+        <!-- Figure Placeholder -->
+        <img src="bilstm.png"
+             alt="BiLSTM"
+             class="study-figure">
+
+        <div class="figure-caption">
+
+            <em>
+                BiLSTM prediction architecture.
+            </em>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<h2>Lag Correction</h2>
+
+<div class="two-col">
+
+    <div class="workflow-block">
+
+        <!-- Figure Placeholder -->
+        <img src="dtw.png"
+             alt="DTW"
+             class="study-figure">
+
+        <div class="figure-caption">
+
+            <em>
+                Dynamic Time Warping for alignment between CGM and blood glucose signals.
+            </em>
+
+        </div>
+
+    </div>
+
+    <div class="section-card">
+
+        <h3>Dynamic Time Warping</h3>
+
+        <p>
+            Dynamic Time Warping (DTW) was applied to estimate the time lag
+            between interstitial glucose measurements and blood glucose values.
+        </p>
+
+        <p>
+            The method enabled personalized correction of physiological delay
+            and improved agreement between CGM measurements and reference blood glucose.
+        </p>
+
+    </div>
+
+</div>
+
+
+<h2>Anomaly Detection</h2>
+
+<div class="two-col">
+
+    <div class="section-card">
+
+        <h3>False Alarm Reduction</h3>
+
+        <p>
+            Multiple anomaly detection algorithms were evaluated to distinguish
+            true glycemic excursions from transient fluctuations caused by
+            environmental or sensor-related disturbances.
+        </p>
+
+        <p>
+            MCD and OCSVM achieved the most stable performance across
+            different monitoring scenarios.
+        </p>
+
+    </div>
+
+    <div class="workflow-block">
+
+        <!-- Figure Placeholder -->
+        <img src="anomaly.png"
+             alt="Anomaly Detection"
+             class="study-figure">
+
+        <div class="figure-caption">
+
+            <em>
+                Anomaly detection workflow and alarm classification.
+            </em>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <h2>Results</h2>
 
-<p>
-The proposed approach demonstrated improved monitoring accuracy and alarm precision compared with traditional monitoring strategies.
-</p>
+<div class="results-layout">
 
-<p>
-By incorporating anomaly detection mechanisms, the system reduced false alerts and increased reliability for continuous physiological monitoring applications.
-</p>
+    <div class="workflow-block">
 
-<h2>Technical Skills</h2>
+        <!-- Figure Placeholder -->
+        <img src="results.png"
+             alt="Results"
+             class="study-figure">
 
-<ul>
-    <li>Python</li>
-    <li>Deep Learning</li>
-    <li>BiLSTM</li>
-    <li>Time-Series Analysis</li>
-    <li>Dynamic Time Warping (DTW)</li>
-    <li>Anomaly Detection</li>
-</ul>
+        <div class="figure-caption">
 
-<h2>Research Significance</h2>
+            <em>
+                Representative prediction and anomaly detection results.
+            </em>
 
-<p>
-This project highlights the potential of machine learning methods for personalized physiological monitoring and digital health applications. The work contributes to ongoing efforts to develop intelligent systems capable of supporting real-time clinical decision-making and patient self-management.
-</p>
+        </div>
 
-<h2>Future Directions</h2>
+    </div>
 
-<p>
-Future work may incorporate multimodal physiological signals, wearable sensor data, and personalized adaptive learning frameworks to further improve predictive performance and clinical utility.
-</p>
+    <div class="results-metrics">
 
-</body>
+        <h3>Performance</h3>
 
-</html>
+        <div class="metric-card">
+
+            <div class="metric-value">
+                1.15×10⁻³
+            </div>
+
+            <div class="metric-label">
+                Prediction MSE
+            </div>
+
+        </div>
+
+        <div class="metric-card">
+
+            <div class="metric-value">
+                6.0 min
+            </div>
+
+            <div class="metric-label">
+                Estimated Lag
+            </div>
+
+        </div>
+
+        <div class="metric-card">
+
+            <div class="metric-value">
+                80%+
+            </div>
+
+            <div class="metric-label">
+                Alarm Accuracy
+            </div>
+
+        </div>
+
+        <div class="metric-card">
+
+            <div class="metric-value">
+                30×
+            </div>
+
+            <div class="metric-label">
+                Faster Updates
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<h2>My Contribution</h2>
+
+<div class="section-card">
+
+    <p>
+        Designed and implemented a personalized CGM monitoring framework
+        integrating BiLSTM prediction, online learning, Dynamic Time Warping,
+        and anomaly detection. Conducted model development, time-series analysis,
+        algorithm evaluation, visualization, and experimental validation using
+        multi-day continuous glucose monitoring data.
+    </p>
+
+</div>
