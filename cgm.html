@@ -590,7 +590,12 @@
                 data became available, allowing rapid adaptation without full model retraining.
             </p>
         
-            <h3>DTW-based Lag Correction</h3>
+            <h3>
+                <a href="#"
+                   onclick="showDTW(); return false;">
+                   DTW-based Lag Correction
+                </a>
+            </h3>
         
             <p>
                 Dynamic Time Warping (DTW) was applied to estimate physiological delay
@@ -632,6 +637,34 @@
 
 </div>
 
+<div id="dtw-panel" style="display:none;">
+
+    <img src="fastdtw.png"
+         class="study-figure">
+
+    <div class="figure-caption">
+
+        <em>
+            Fast-DTW alignment process across multiple resolutions.
+        </em>
+
+    </div>
+
+    <p>
+        Dynamic Time Warping (DTW) estimates the temporal delay
+        between interstitial glucose measurements and blood glucose
+        values by searching for an optimal alignment path between
+        two time series.
+    </p>
+
+    <p>
+        Fast-DTW reduces computational complexity through
+        progressive refinement from low-resolution to
+        high-resolution representations while preserving
+        alignment accuracy.
+    </p>
+
+</div>
 
 <h2>Anomaly Detection</h2>
 
@@ -765,4 +798,21 @@
     </p>
 
 </div>
+<script>
+
+function showDTW() {
+
+    document.getElementById("bilstm-panel").style.display = "none";
+
+    document.getElementById("dtw-panel").style.display = "block";
+}
+
+function showBiLSTM() {
+
+    document.getElementById("dtw-panel").style.display = "none";
+
+    document.getElementById("bilstm-panel").style.display = "block";
+}
+
+</script>
 </div>
