@@ -661,22 +661,22 @@
                     <h3 style="margin-top:0;">Fast-DTW Principle</h3>
 
                     <p>
-                    Fast-DTW accelerates sequence alignment by restricting
+                    Fast-DTW accelerates alignment by restricting
                     the search space to regions near a coarse-resolution
                     alignment path.
                     </p>
                     
                     <p>
-                    Compared with standard DTW, the method reduces
+                    Compared with standard DTW, it reduces
                     computational complexity from O(N²) to O(N),
                     making real-time lag estimation feasible for
                     continuous glucose monitoring applications.
                     </p>
                     
                     <p>
-                    This speed gain comes at the cost of a small
-                    approximation error, as the globally optimal
-                    alignment path is no longer guaranteed.
+                    The tradeoff is a near-optimal rather than globally
+                    optimal alignment path, with minimal accuracy loss
+                    in practice.
                     </p>
     
                 </div>
