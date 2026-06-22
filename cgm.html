@@ -334,7 +334,51 @@
     gap: 18px;
     align-items: stretch;
 }
+.result-viewer {
 
+    position: relative;
+}
+
+.viewer-btn {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.9);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    color: #005587;
+
+    z-index: 10;
+}
+
+.viewer-btn:hover {
+
+    background: white;
+}
+
+.viewer-btn:first-child {
+
+    left: 10px;
+}
+
+.viewer-btn:last-child {
+
+    right: 10px;
+}
 .dataset-visual {
     display: flex;
     flex-direction: column;
@@ -778,20 +822,35 @@
 <div class="results-layout">
 
     <div class="workflow-block">
-
-        <!-- Figure Placeholder -->
-        <img src="results.png"
-             alt="Results"
-             class="study-figure">
-
-        <div class="figure-caption">
-
-            <em>
-                Representative prediction and anomaly detection results.
-            </em>
-
+    
+        <div class="result-viewer">
+    
+            <button class="viewer-btn"
+                    onclick="prevFigure()">
+                ‹
+            </button>
+    
+            <img id="resultFigure"
+                 src="bilstmresult.png"
+                 class="study-figure">
+    
+            <button class="viewer-btn"
+                    onclick="nextFigure()">
+                ›
+            </button>
+    
         </div>
+    
+        <div id="resultCaption"
+             class="figure-caption">
+    
+            <em>
+            Comparison between BiLSTM predictions and observed glucose values. The model accurately captures short-term glucose fluctuations and temporal trends.
 
+            </em>
+    
+        </div>
+    
     </div>
 
     <div class="results-metrics">
@@ -876,6 +935,61 @@ function showBiLSTM() {
     document.getElementById("dtw-panel").style.display = "none";
     document.getElementById("bilstm-panel").style.display = "block";
 
+}
+
+</script>
+<script>
+
+const figures = [
+
+{
+    img: "bilstmresult.png",
+
+    caption:
+    "Comparison between BiLSTM predictions and observed glucose values. The model accurately captures short-term glucose fluctuations and temporal trends."
+},
+
+{
+    img: "arimaresult.png",
+
+    caption:
+    "Forecasting performance comparison between ARIMA and BiLSTM models. BiLSTM provides improved predictive accuracy and better adaptation to nonlinear glucose dynamics."
+},
+
+{
+    img: "abnormalresult.png",
+
+    caption:
+    "Performance comparison of anomaly detection algorithms across multiple validation sequences for false alarm identification."
+}
+
+];
+
+let currentFigure = 0;
+
+function updateFigure() {
+
+    document.getElementById("resultFigure").src =
+        figures[currentFigure].img;
+
+    document.getElementById("resultCaption").innerHTML =
+        "<em>" + figures[currentFigure].caption + "</em>";
+}
+
+function nextFigure() {
+
+    currentFigure =
+        (currentFigure + 1) % figures.length;
+
+    updateFigure();
+}
+
+function prevFigure() {
+
+    currentFigure =
+        (currentFigure - 1 + figures.length) % figures.length;
+
+    updateFigure();
 }
 
 </script>
