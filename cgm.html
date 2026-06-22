@@ -724,26 +724,32 @@
         <h3>False Alarm Reduction</h3>
 
         <p>
-            Multiple anomaly detection algorithms were evaluated
-            for identifying transient sensor disturbances and
-            reducing false glucose alarms.
+        Continuous glucose monitoring systems are susceptible
+        to transient signal disturbances caused by environmental
+        factors, sensor artifacts, and physiological variability.
+        These fluctuations may trigger unnecessary glucose alarms
+        and reduce monitoring reliability.
         </p>
-
-        <h3>Algorithm Comparison</h3>
-
+        
+        <h3>Anomaly Detection Framework</h3>
+        
         <p>
-            Ten anomaly detection methods were benchmarked,
-            including MCD, OCSVM, Isolation Forest, KNN,
-            LOF, KDE, SVDD, and Gaussian Mixture Models.
+        To address this challenge, an anomaly detection framework
+        was developed to identify abnormal signal patterns before
+        alarm generation. The workflow integrates data preprocessing,
+        model training, anomaly evaluation, and alarm correction
+        into a unified monitoring pipeline.
         </p>
-
-        <h3>Key Finding</h3>
-
+        
+        <h3>Detection Strategies</h3>
+        
         <p>
-            MCD consistently achieved the strongest overall
-            performance, while OCSVM and Isolation Forest
-            provided competitive results across multiple
-            evaluation metrics.
+        Multiple anomaly detection methods were evaluated,
+        including MCD, OCSVM, Isolation Forest, KNN,
+        LOF, KDE, SVDD, and Gaussian Mixture Models.
+        These approaches represent different statistical
+        and machine learning strategies for identifying
+        abnormal glucose signal behavior.
         </p>
 
     </div>
@@ -822,7 +828,7 @@
             </div>
 
             <div class="metric-label">
-                Faster Updates
+                Faster Updates (vs. Retraining)
             </div>
 
         </div>
