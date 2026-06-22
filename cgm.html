@@ -658,22 +658,25 @@
     
                 <div style="margin-top:16px;">
     
-                    <h3 style="margin-top:0;">
-                        Dynamic Time Warping
-                    </h3>
-    
+                    <h3 style="margin-top:0;">Fast-DTW Principle</h3>
+
                     <p>
-                        Dynamic Time Warping (DTW) estimates the temporal delay
-                        between interstitial glucose measurements and blood glucose
-                        values by searching for an optimal alignment path between
-                        two time series.
+                    Fast-DTW accelerates sequence alignment by restricting
+                    the search space to regions near a coarse-resolution
+                    alignment path.
                     </p>
-    
+                    
                     <p>
-                        Fast-DTW reduces computational complexity through
-                        progressive refinement from low-resolution to
-                        high-resolution representations while preserving
-                        alignment accuracy.
+                    Compared with standard DTW, the method reduces
+                    computational complexity from O(N²) to O(N),
+                    making real-time lag estimation feasible for
+                    continuous glucose monitoring applications.
+                    </p>
+                    
+                    <p>
+                    This speed gain comes at the cost of a small
+                    approximation error, as the globally optimal
+                    alignment path is no longer guaranteed.
                     </p>
     
                 </div>
