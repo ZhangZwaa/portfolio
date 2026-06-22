@@ -576,75 +576,58 @@
     <div class="section-card">
 
         <h3>BiLSTM Prediction</h3>
-
-        <p>
-            A Bidirectional Long Short-Term Memory (BiLSTM) network was used
-            to model temporal glucose dynamics and generate short-term glucose
-            forecasts from continuous CGM measurements.
-        </p>
-
-        <p>
-            Online learning was incorporated to update model parameters
-            continuously as new monitoring data became available.
-        </p>
-
+    
+            <p>
+                A Bidirectional Long Short-Term Memory (BiLSTM) network was used to model
+                temporal glucose dynamics and generate short-term glucose forecasts from
+                continuous CGM measurements.
+            </p>
+        
+            <h3>Online Learning Update</h3>
+        
+            <p>
+                Online learning continuously updated model parameters as new monitoring
+                data became available, allowing rapid adaptation without full model retraining.
+            </p>
+        
+            <h3>DTW-based Lag Correction</h3>
+        
+            <p>
+                Dynamic Time Warping (DTW) was applied to estimate physiological delay
+                and align predicted CGM signals with blood glucose measurements,
+                enabling personalized correction of time lag.
+            </p>
+    
     </div>
 
     <div class="workflow-block">
-
-        <!-- Figure Placeholder -->
+    
+        <img src="LSTM.jpg"
+             alt="LSTM Cell"
+             class="study-figure">
+    
+        <div class="figure-caption">
+    
+            <em>
+                Structure of a standard LSTM cell with forget, input, and output gates.
+            </em>
+    
+        </div>
+    
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #e8e8e8;">
+    
         <img src="bilstm.png"
-             alt="BiLSTM"
+             alt="BiLSTM Architecture"
              class="study-figure">
-
+    
         <div class="figure-caption">
-
+    
             <em>
-                BiLSTM prediction architecture.
+                Bidirectional LSTM architecture used for glucose prediction.
             </em>
-
+    
         </div>
-
-    </div>
-
-</div>
-
-
-<h2>Lag Correction</h2>
-
-<div class="two-col">
-
-    <div class="workflow-block">
-
-        <!-- Figure Placeholder -->
-        <img src="dtw.png"
-             alt="DTW"
-             class="study-figure">
-
-        <div class="figure-caption">
-
-            <em>
-                Dynamic Time Warping for alignment between CGM and blood glucose signals.
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="section-card">
-
-        <h3>Dynamic Time Warping</h3>
-
-        <p>
-            Dynamic Time Warping (DTW) was applied to estimate the time lag
-            between interstitial glucose measurements and blood glucose values.
-        </p>
-
-        <p>
-            The method enabled personalized correction of physiological delay
-            and improved agreement between CGM measurements and reference blood glucose.
-        </p>
-
+    
     </div>
 
 </div>
