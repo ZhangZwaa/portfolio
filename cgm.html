@@ -845,7 +845,7 @@
              class="figure-caption">
     
             <em>
-            Comparison between BiLSTM predictions and observed glucose values. The model accurately captures short-term glucose fluctuations and temporal trends.
+           BiLSTM predictions closely overlap the observed glucose measurements throughout the monitoring period. The model achieved a prediction MSE of 1.15×10⁻³, indicating highly accurate short-term glucose forecasting.
 
             </em>
     
@@ -946,21 +946,21 @@ const figures = [
     img: "bilstmresult.png",
 
     caption:
-    "Comparison between BiLSTM predictions and observed glucose values. The model accurately captures short-term glucose fluctuations and temporal trends."
+    "BiLSTM predictions closely overlap the observed glucose measurements throughout the monitoring period. The model achieved a prediction MSE of 1.15×10⁻³, indicating highly accurate short-term glucose forecasting."
 },
 
 {
     img: "arimaresult.png",
 
     caption:
-    "Forecasting performance comparison between ARIMA and BiLSTM models. BiLSTM provides improved predictive accuracy and better adaptation to nonlinear glucose dynamics."
+    "Comparison of forecasting performance between ARIMA and BiLSTM models. While BiLSTM achieved an MSE of 1.15×10⁻³, ARIMA produced a substantially larger error (MSE = 0.157), demonstrating the advantage of deep sequence modeling for glucose prediction."
 },
 
 {
     img: "abnormalresult.png",
 
     caption:
-    "Performance comparison of anomaly detection algorithms across multiple validation sequences for false alarm identification."
+    "Accuracy comparison of multiple anomaly detection algorithms across four validation sequences collected from the same monitoring site at different time periods. The sequences represent both routine conditions and episodes containing elevated false alarms or abnormal glucose fluctuations."
 }
 
 ];
