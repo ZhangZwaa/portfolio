@@ -691,7 +691,7 @@
                         <div class="figure-caption">
                     
                             <em>
-                                Computational complexity comparison between
+                                Computational complexity of
                                 standard DTW and Fast-DTW.
                             </em>
                     
@@ -720,21 +720,30 @@
 <div class="two-col">
 
     <div class="section-card">
-
-        <h3>False Alarm Reduction</h3>
-
-        <p>
-            Multiple anomaly detection algorithms were evaluated to distinguish
-            true glycemic excursions from transient fluctuations caused by
-            environmental or sensor-related disturbances.
-        </p>
-
-        <p>
-            MCD and OCSVM achieved the most stable performance across
-            different monitoring scenarios.
-        </p>
-
-    </div>
+    <h3>False Alarm Reduction</h3>
+    
+    <p>
+    Environmental disturbances and sensor artifacts can
+    introduce short-term fluctuations in CGM measurements,
+    leading to false glucose alarms.
+    </p>
+    
+    <h3>Anomaly Detection Methods</h3>
+    
+    <p>
+    Multiple anomaly detection algorithms were evaluated,
+    including Minimum Covariance Determinant (MCD),
+    One-Class Support Vector Machine (OCSVM), and
+    Isolation Forest.
+    </p>
+    
+    <h3>Key Finding</h3>
+    
+    <p>
+    MCD and OCSVM demonstrated the most stable performance,
+    achieving the highest alarm classification accuracy
+    across monitoring scenarios.
+    </p>
 
     <div class="workflow-block">
 
